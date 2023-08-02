@@ -42,4 +42,10 @@ public class DepartmentController {
     public Department updateDepartment(@PathVariable("id") long departmentId, @RequestBody Department department) {
         return iDepartmentService.updateDepartment(departmentId, department);
     }
+
+    @GetMapping("/departments/name/{departmentName}")
+    public Department fetchDepartmentByName(@PathVariable("departmentName") String departmentName)
+    {
+        return iDepartmentService.fetchByDepartmentName(departmentName);
+    }
 }

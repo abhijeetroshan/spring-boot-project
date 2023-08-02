@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class DepartmentService implements IDepartmentService {
@@ -53,5 +52,10 @@ public class DepartmentService implements IDepartmentService {
         else if (StringUtils.hasText(departDB.getDepartmentName()))
             departDB.setDepartmentName(department.getDepartmentName());
         return null;
+    }
+
+    @Override
+    public Department fetchByDepartmentName(String departmentName) {
+        return iDepartmentRepository.findByDepartmentName(departmentName);
     }
 }
