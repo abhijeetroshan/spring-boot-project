@@ -9,4 +9,8 @@ public interface IDepartmentService {
     Department saveDepartment(Department department);
 
     List<Department> fetchDepartmentList();
+
+    Department getDepartmentById(long departmentId);
+
+    List<Department> saveAlldepartments(List<Department> departmentList);
 }

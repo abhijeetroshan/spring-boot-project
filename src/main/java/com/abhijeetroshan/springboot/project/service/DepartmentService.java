@@ -22,4 +22,14 @@ public class DepartmentService implements IDepartmentService {
     public List<Department> fetchDepartmentList() {
         return iDepartmentRepository.findAll();
     }
+
+    @Override
+    public Department getDepartmentById(long departmentId) {
+        return iDepartmentRepository.findById(departmentId).get();
+    }
+
+    @Override
+    public List<Department> saveAlldepartments(List<Department> departmentList) {
+        return iDepartmentRepository.saveAll(departmentList);
+    }
 }
