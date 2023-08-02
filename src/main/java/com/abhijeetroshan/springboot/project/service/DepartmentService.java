@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
 @Service
 public class DepartmentService implements IDepartmentService {
@@ -41,5 +41,17 @@ public class DepartmentService implements IDepartmentService {
             iDepartmentRepository.deleteById(departmentId);
             return "Successfully deleted";
         } else return "Id is not present in Database";
+    }
+
+    @Override
+    public Department updateDepartment(long departmentId, Department department) {
+        Department departDB = getDepartmentById(departmentId);
+        if (StringUtils.hasText(departDB.getDepartmentAddress()))
+            departDB.setDepartmentAddress(department.getDepartmentAddress());
+        else if (StringUtils.hasText(departDB.getDepartmentCode()))
+            departDB.setDepartmentCode(department.getDepartmentCode());
+        else if (StringUtils.hasText(departDB.getDepartmentName()))
+            departDB.setDepartmentName(department.getDepartmentName());
+        return null;
     }
 }
