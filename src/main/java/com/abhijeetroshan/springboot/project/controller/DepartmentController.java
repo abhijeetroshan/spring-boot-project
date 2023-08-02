@@ -32,4 +32,9 @@ public class DepartmentController {
     public List<Department> saveAlldepartments(@RequestBody List<Department> departmentList) {
         return iDepartmentService.saveAlldepartments(departmentList);
     }
+
+    @DeleteMapping("/departments/{id}")
+    public String deleteDepartmentById(@PathVariable("id") long departmentId) {
+        return iDepartmentService.deleteDepartmentById(departmentId);
+    }
 }

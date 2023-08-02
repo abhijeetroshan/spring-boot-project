@@ -13,4 +13,6 @@ public interface IDepartmentService {
     Department getDepartmentById(long departmentId);
 
     List<Department> saveAlldepartments(List<Department> departmentList);
+
+    String deleteDepartmentById(long departmentId);
 }
